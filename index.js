@@ -3,6 +3,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const cors = require('cors')
 
 
 // change origin to ["https://moji-meals.vercel.app/"] when finished
@@ -13,6 +14,8 @@ const io = new Server(server, {
     credentials: true
   }
 });
+
+app.use(cors())
 
 const PORT = process.env.PORT || 8888;
 
