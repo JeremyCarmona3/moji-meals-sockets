@@ -6,10 +6,10 @@ const { Server } = require("socket.io");
 const cors = require('cors')
 
 
-// change origin to ["https://moji-meals.vercel.app/"] when finished
+// change origin to ["https://moji-meals.vercel.app"] when finished
 const io = new Server(server, {
   cors: {
-    origin: ["https://moji-meals.vercel.app/"],
+    origin: ["https://moji-meals.vercel.app"],
     allowedHeaders: ["Access-Control-Allow-Origin"],
     credentials: true
   }
