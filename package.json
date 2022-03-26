@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "web": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +12,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "socket.io": "^4.4.1"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
