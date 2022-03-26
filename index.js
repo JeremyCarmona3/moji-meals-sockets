@@ -4,6 +4,7 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 
+
 // change origin to ["https://moji-meals.vercel.app/"] when finished
 const io = new Server(server, {
   cors: {
@@ -32,6 +33,14 @@ io.on('connection', (socket) => {
   socket.on("user_ready", (txt) => {
     io.emit("joined", socket.id, txt)
   });
+
+  socket.on('mouse_xy',(x,y)=>{
+    console.log(x,y)
+    //io.emit('update_mouse',x,y)
+    users[socket.id].left =x;
+    users[socket.id].top= y;
+    socket.broadcast.emit('init_user',users)
+  })
 
   socket.on("disconnect", ()=>{
     delete users[socket.id];
